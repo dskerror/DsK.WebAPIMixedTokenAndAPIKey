@@ -1,0 +1,3 @@
+﻿Add-Migration add CreateApiKeys
+
+Update-Database
