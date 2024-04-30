@@ -7,7 +7,7 @@ namespace DsK.WebAPIMixedTokenAndAPIKey.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-//[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+//[Authorize(AuthenticationSchemes = "Bearer,ApiKey")]
 [Authorize(AuthenticationSchemes = "Bearer,ApiKey")]
 public class SecureController : ControllerBase
 {

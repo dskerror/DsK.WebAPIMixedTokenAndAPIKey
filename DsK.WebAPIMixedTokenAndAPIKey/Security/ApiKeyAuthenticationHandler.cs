@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
+using System.Net;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 
@@ -21,10 +22,11 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<AuthenticationS
     }
 
     protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
-    {
+    {        
         if (!Request.Headers.TryGetValue(ApiKeyHeaderName, out var apiKeyHeaderValues))
         {
-            return AuthenticateResult.Fail("API Key is missing.");
+            //return AuthenticateResult.Fail("API Key is missing.");
+            return AuthenticateResult.NoResult();
         }
 
         var providedApiKey = apiKeyHeaderValues.FirstOrDefault();
